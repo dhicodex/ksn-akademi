@@ -3,9 +3,10 @@
 @section('title', 'Login')
 
 @section('content')
-<div class="flex justify-center">
+<div class="flex justify-center items-center h-screen">
     <div class="w-full max-w-md">
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="{{ route('admin.login') }}">
+            <h1 class="py-4 text-2xl font-bold text-center">Admin Panel Login</h1>
             @csrf
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="email">

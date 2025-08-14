@@ -7,14 +7,15 @@
     <title>Admin Dashboard - @yield('title')</title>
     @vite('resources/css/app.css')
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    @yield('css-custom')
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
     <div class="flex md:flex-row-reverse flex-wrap">
 
         <!-- Main Content -->
-        <div class="w-full md:w-4/5 bg-gray-100">
-            <div class="container bg-white rounded-lg shadow-lg p-6 my-6">
+        <div class="w-full md:w-4/5 bg-gray-100 content-border">
+            <div class="container bg-white min-h-screen p-6">
                 <h1 class="text-3xl text-gray-800 mb-4 playfairFont">@yield('title')</h1>
                 
                 @if (session('success'))
@@ -82,5 +83,6 @@
             });
         });
     </script>
+    @yield('js-custom')
 </body>
 </html>
