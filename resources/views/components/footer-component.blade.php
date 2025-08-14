@@ -1,8 +1,8 @@
 <section class="footer bg-white">
-    <div class="container max-w-[1200px] mx-auto">
+    <div class="container max-w-[1200px] mx-auto px-4">
         <div class="py-10 border-t border-[#e5e5e5]">
-            <div class="flex justify-between">
-                <div class="relative flex flex-col gap-4 pl-8">
+            <div class="flex flex-col md:flex-row justify-between gap-10 md:gap-0">
+                <div class="relative flex flex-col gap-4 md:pl-8">
                     <img src="{{ asset('images/logo.png') }}" class="h-16 w-fit" alt="KSN Akademi">
                     <p class="max-w-[300px] leading-6 text-[15px] text-[#1d1e20]">Ruko Lumi BIZZ, Boulevard, Jl. Legenda Wisata No.33 Blok U12, Nagrak, Kec. Gn. Putri, Kabupaten Bogor, Jawa Barat 16965</p>
                     
@@ -13,7 +13,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-4 pr-72">
+                <div class="flex flex-col gap-4 md:pr-72">
                     <ul class="flex flex-col gap-4">
                         <li><a href="/" class="text-[#1d1e20] text-[14px] font-medium">Blog</a></li>
                         <li><a href="/" class="text-[#1d1e20] text-[14px] font-medium">Tentang Kami</a></li>

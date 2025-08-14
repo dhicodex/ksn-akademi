@@ -15,9 +15,9 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     
     {{-- Hero --}}
     <section class="hero section bg-white min-h-[600px]">
-        <div class="container flex flex-col items-center justify-center">
+        <div class="container flex flex-col items-center justify-center px-4">
             <div class="max-w-[800px] mx-auto text-center">
-                <h1 class="hero-title text-5xl leading-tight font-bold">Solusi Terpercaya untuk Sengketa Kepabeanan Bea Cukai dan Sertifikasi Ahli Kepabeanan</h1>
+                <h1 class="hero-title text-3xl md:text-5xl leading-tight font-bold">Solusi Terpercaya untuk Sengketa Kepabeanan Bea Cukai dan Sertifikasi Ahli Kepabeanan</h1>
             </div>
 
             <div class="hero-btn mt-12">
@@ -28,13 +28,13 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
     {{-- Plans --}}
     <section id="plans" class="plans-section bg-white pb-20">
-        <div class="container max-w-[1200px] mx-auto flex flex-col items-center">
-            <h2 class="play-fair-family text-4xl text-[#1d1e20] font-semibold">
+        <div class="container max-w-[1200px] mx-auto flex flex-col items-center px-4">
+            <h2 class="play-fair-family text-3xl md:text-4xl text-[#1d1e20] font-semibold text-center">
                 Pilih Paket Anda
             </h2>
             <p class="max-w-[400px] text-[#7a7a7a] text-center mt-2">Pilih paket yang sesuai untuk menuntaskan tantangan kepabeanan Anda</p>
 
-            <div class="grid grid-cols-3 gap-5 mt-5 w-full items-end">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 w-full items-end">
                 @for ($i = 0; $i < 3; $i++)
                     <div class="card-package">
                         <div class="card-package__wrapper border bg-[#fafbff] rounded-lg {{ $i == 1 ? 'border-[#2e3e50] border-2' : 'border-slate-200' }}">
@@ -83,17 +83,17 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     </section>
 
     {{-- About --}}
-    <section class="about-section pt-20 pb-[200px]">
-        <div class="container max-w-[1200px] mx-auto flex gap-10">
-            <div class="relative w-[50%]">
+    <section class="about-section pt-20 pb-10 md:pb-[200px]">
+        <div class="container max-w-[1200px] mx-auto flex flex-col md:flex-row gap-10 px-4">
+            <div class="relative w-full md:w-[50%]">
                 <!-- Gambar 1 dan 2 di atas, overlap -->
-                <div class="illustration-about flex space-x-[-30px] z-10 relative mb-3">
+                <div class="illustration-about flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-[-30px] z-10 relative mb-3">
                     <img src="https://media.istockphoto.com/id/1783743772/id/foto/pembicara-wanita-memberikan-presentasi-selama-seminar-bisnis-di-pusat-konvensi.jpg?s=612x612&w=0&k=20&c=dTuGMazV0h9OycnjVjyxW7nDYcAcZTPkObtyRqqkOSw=" 
                         alt="About 1" 
-                        class="w-[400px] h-52 object-cover rounded-lg border-4 border-white shadow-lg relative z-20" />
+                        class="w-full md:w-[400px] h-52 object-cover rounded-lg border-4 border-white shadow-lg relative z-20" />
                     <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         alt="About 2"
-                        class="w-52 h-52 object-cover rounded-lg border-4 border-white shadow-lg relative z-10 bottom-[-50px]" />
+                        class="w-full md:w-52 h-52 object-cover rounded-lg border-4 border-white shadow-lg relative md:bottom-[-50px]" />
                 </div>
                 <!-- Gambar 3 di bawah, full -->
                 <div>
@@ -103,9 +103,9 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                 </div>
             </div>
 
-            <div class="relative flex flex-col justify-end pb-10 flex-1">
+            <div class="relative flex flex-col justify-end pb-10 flex-1 mt-10 md:mt-0">
                 <div class="bg-[#2e3e50] py-1 px-4 text-center text-white text-sm font-medium rounded-sm w-fit mb-2">Tentang Kami</div>
-                <h2 class="play-fair-family text-[#1d1e20] text-4xl font-semibold">Pelajari & tingkatkan <span class="marker-circle relative">keterampilan</span> Anda bersama Kami</h2>
+                <h2 class="play-fair-family text-[#1d1e20] text-3xl md:text-4xl font-semibold">Pelajari & tingkatkan <span class="marker-circle relative">keterampilan</span> Anda bersama Kami</h2>
                 <p class="mt-2 text-[#7a7a7a]">Berkomitmen memberikan solusi dan pendampingan terbaik dalam kepabeanan dan cukai, serta edukasi dan dukungan sistem yang efektif. Kami berupaya memberikan layanan terbaik dan kenyamanan konsultasi bagi klien. Kepercayaan Anda menjadi prioritas kami, yang telah dipilih oleh banyak klien</p>
             </div>
         </div>
@@ -113,32 +113,32 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
     {{-- Testimonial --}}
     <section class="testimonial-section bg-[#2e3e50]">
-        <div class="container max-w-[1200px] mx-auto flex flex-col gap-10 relative">
-            <div class="testimonial-counting bg-white flex gap-5 py-[50px] px-[70px] relative top-[-95px] rounded-full">
-                <div class="flex gap-4 w-full">
-                    <div class="bg-slate-200 rounded-full w-[78px] h-[78px] flex items-center justify-center">
+        <div class="container max-w-[1200px] mx-auto flex flex-col gap-10 relative px-4">
+            <div class="testimonial-counting bg-white flex flex-col md:flex-row gap-5 py-10 px-6 md:py-[50px] md:px-[70px] relative top-[-95px] rounded-lg md:rounded-full">
+                <div class="flex gap-4 w-full items-center">
+                    <div class="bg-slate-200 rounded-full w-[60px] h-[60px] md:w-[78px] md:h-[78px] flex items-center justify-center flex-shrink-0">
                         <img src="{{ asset('images/successful-testimonial.png') }}"/>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <div class="font-bold text-5xl text-[#1d1e20]">1K+</div>
+                        <div class="font-bold text-3xl md:text-5xl text-[#1d1e20]">1K+</div>
                         <div class="text-[#7a7a7a] text-sm">Successfully Trained</div>
                     </div>
                 </div>
-                <div class="flex gap-4 w-full">
-                    <div class="bg-slate-200 rounded-full w-[78px] h-[78px] flex items-center justify-center">
+                <div class="flex gap-4 w-full items-center">
+                    <div class="bg-slate-200 rounded-full w-[60px] h-[60px] md:w-[78px] md:h-[78px] flex items-center justify-center flex-shrink-0">
                         <img src="{{ asset('images/class-testimonial.png') }}"/>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <div class="font-bold text-5xl text-[#1d1e20]">15K+</div>
+                        <div class="font-bold text-3xl md:text-5xl text-[#1d1e20]">15K+</div>
                         <div class="text-[#7a7a7a] text-sm">Classes Completed</div>
                     </div>
                 </div>
-                <div class="flex gap-4 w-full">
-                    <div class="bg-slate-200 rounded-full w-[78px] h-[78px] flex items-center justify-center">
+                <div class="flex gap-4 w-full items-center">
+                    <div class="bg-slate-200 rounded-full w-[60px] h-[60px] md:w-[78px] md:h-[78px] flex items-center justify-center flex-shrink-0">
                         <img src="{{ asset('images/satisfaction-testimonial.png') }}"/>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <div class="font-bold text-5xl text-[#1d1e20]">37K+</div>
+                        <div class="font-bold text-3xl md:text-5xl text-[#1d1e20]">37K+</div>
                         <div class="text-[#7a7a7a] text-sm">Satisfaction Rate</div>
                     </div>
                 </div>
@@ -229,15 +229,15 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
     {{-- Expert --}}
     <section class="expert-section bg-white">
-        <div class="container max-w-[1200px] mx-auto flex flex-col gap-10 relative py-20">
+        <div class="container max-w-[1200px] mx-auto flex flex-col gap-10 relative py-20 px-4">
             <div class="flex items-center justify-center flex-col">
                 <div class="bg-[#2e3e50] py-1 px-4 text-center text-white text-sm font-medium rounded-sm w-fit mb-4">Experts</div>
-                <h2 class="play-fair-family text-[#1d1e20] text-4xl font-semibold">Temui Instruktur Ahli Kami</h2>
+                <h2 class="play-fair-family text-[#1d1e20] text-3xl md:text-4xl font-semibold text-center">Temui Instruktur Ahli Kami</h2>
                 <p class="max-w-[400px] mt-2 text-[14px] text-[#7a7a7a] leading-6 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad fugiat possimus adipisci eos quisquam quae ex rem unde, dolorum nihil?</p>
 
-                <div class="expert-list mt-5 flex gap-5">
+                <div class="expert-list mt-5 flex flex-col md:flex-row gap-5">
                     <div class="relative">
-                        <div class="max-w-[312px] min-h-[361px] relative">
+                        <div class="max-w-full md:max-w-[312px] min-h-[361px] relative">
                             <img src="{{ asset('/images/benny.png') }}" class="h-[361px] object-cover w-full rounded-t-lg"/>
                         </div>
                         <div class="bg-[#2e3e50] rounded-b-lg py-8 w-full">
@@ -246,7 +246,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                         </div>
                     </div>
                     <div class="relative">
-                        <div class="max-w-[312px] min-h-[361px] relative">
+                        <div class="max-w-full md:max-w-[312px] min-h-[361px] relative">
                             <img src="{{ asset('/images/yossy.png') }}" class="h-[361px] object-cover w-full rounded-t-lg"/>
                         </div>
                         <div class="bg-[#2e3e50] rounded-b-lg py-8 w-full">
@@ -255,7 +255,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                         </div>
                     </div>
                     <div class="relative">
-                        <div class="max-w-[312px] min-h-[361px] relative">
+                        <div class="max-w-full md:max-w-[312px] min-h-[361px] relative">
                             <img src="{{ asset('/images/okta.png') }}" class="h-[361px] object-cover w-full rounded-t-lg"/>
                         </div>
                         <div class="bg-[#2e3e50] rounded-b-lg py-8 w-full">
@@ -289,12 +289,26 @@ var swiper = new Swiper(".mySwiper", {
         delay: 2500,
         disableOnInteraction: false,
     },
-    slidesPerView: 3,
+    slidesPerView: 1,
     spaceBetween: 30,
     pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
+        el: ".swiper-pagination",
+        clickable: true,
     },
+    breakpoints: {
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+        },
+    }
 });
 </script>
 @endsection
