@@ -11,8 +11,10 @@ class Blog extends Model
     use HasFactory;
 
     protected $fillable = [
-        'slug', 'title', 'description',
-        'image_src', 'author'
+        'title',
+        'content',
+        'category_id',
+        'status',
     ];
 
     protected $casts = [
@@ -23,6 +25,6 @@ class Blog extends Model
     // ** Relationship */
     public function category(): BelongsTo
     {
-        return this.belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 }

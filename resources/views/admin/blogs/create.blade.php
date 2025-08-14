@@ -42,8 +42,8 @@
         <div>
             <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
             <select name="status" id="status" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('status') border-red-500 @enderror">
-                <option value="draft" {{ old('status', 'draft') == 'draft' ? 'selected' : '' }}>Draft</option>
-                <option value="published" {{ old('status') == 'published' ? 'selected' : '' }}>Published</option>
+                <option value="DRAFT" {{ old('status', 'DRAFT') == 'DRAFT' ? 'selected' : '' }}>Draft</option>
+                <option value="PUBLISHED" {{ old('status') == 'PUBLISHED' ? 'selected' : '' }}>Published</option>
             </select>
             @error('status')
                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>

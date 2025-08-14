@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Dashboard - @yield('title')</title>
     @vite('resources/css/app.css')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
@@ -46,6 +47,13 @@
                     <a href="{{ route('admin.blogs.index') }}" class="block py-2.5 px-4 rounded transition duration-200 text-white hover:bg-gray-700">
                         Blogs
                     </a>
+                    <a href="{{ route('admin.categories.index') }}" class="block py-2.5 px-4 rounded transition duration-200 text-white hover:bg-gray-700">
+                        Categories
+                    </a>
+                    <form method="POST" action="{{ route('admin.logout') }}">
+                        @csrf
+                        <button type="submit" class="w-full text-left block py-2.5 px-4 rounded transition duration-200 text-white hover:bg-gray-700">Logout</button>
+                    </form>
                     <!-- Add other links here -->
                 </nav>
             </div>
@@ -54,5 +62,16 @@
     </div>
 
     @vite('resources/js/app.js')
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#content').summernote({
+                placeholder: 'Write your blog content here...',
+                tabsize: 2,
+                height: 300
+            });
+        });
+    </script>
 </body>
 </html>

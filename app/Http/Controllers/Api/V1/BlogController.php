@@ -45,7 +45,7 @@ class BlogController extends Controller
                 'title' => 'required|string|max:255',
                 'content' => 'required|string',
                 'category_id' => 'required|exists:categories,id',
-                'status' => ['required', Rule::in(['draft', 'published'])],
+                'status' => ['required', Rule::in(['DRAFT', 'PUBLISHED'])],
             ]);
 
             $blog = Blog::create($validated);
@@ -74,7 +74,7 @@ class BlogController extends Controller
                 'title' => 'sometimes|string|max:255',
                 'content' => 'sometimes|string',
                 'category_id' => 'sometimes|exists:categories,id',
-                'status' => ['sometimes', Rule::in(['draft', 'published'])],
+                'status' => ['sometimes', Rule::in(['DRAFT', 'PUBLISHED'])],
             ]);
 
             $blog->update($validated);

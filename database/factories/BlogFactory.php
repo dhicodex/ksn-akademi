@@ -19,10 +19,11 @@ class BlogFactory extends Factory
         return [
             'slug' => fake()->slug(),
             'title' => fake()->sentence(),
+            'content' => fake()->paragraph(),
             'description' => fake()->paragraph(),
             'image_src' => fake()->imageUrl(),
             'category_id' => 1,
-            'author' => 1,
+            'author' => \App\Models\User::inRandomOrder()->first()?->id ?? \App\Models\User::factory(),
             'status' => 'DRAFT',
         ];
     }
