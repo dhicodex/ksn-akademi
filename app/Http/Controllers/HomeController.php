@@ -10,4 +10,15 @@ class HomeController extends Controller
     {
         return view('web.home.home');
     }
+
+    public function blogs()
+    {
+        $blogs = \App\Models\Blog::paginate(8);
+        return view('web.blogs.index', compact('blogs'));
+    }
+
+    public function blog(\App\Models\Blog $blog)
+    {
+        return view('web.blogs.show', compact('blog'));
+    }
 }

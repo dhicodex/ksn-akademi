@@ -3,16 +3,40 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\LoginController as AdminLoginController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 use App\Http\Middleware\IsAdmin;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
+Route::get('/blogs/{blog}', [HomeController::class, 'blog'])->name('blogs.show');
+
+// Authentication Routes
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [RegisterController::class, 'register']);
+
+// Google OAuth Routes
+Route::get('auth/google', [RegisterController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('auth/google/callback', [RegisterController::class, 'handleGoogleCallback'])->name('google.callback');
+
+// Client Authentication Routes
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+// Client Profile Routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', function () {
+        return view('profile.index');
+    })->name('profile');
+});
 
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-    Route::post('login', [LoginController::class, 'login']);
-    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('login', [AdminLoginController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [AdminLoginController::class, 'login']);
+    Route::post('logout', [AdminLoginController::class, 'logout'])->name('logout');
 
     Route::middleware(['auth', IsAdmin::class])->group(function () {
         Route::get('/', function () {

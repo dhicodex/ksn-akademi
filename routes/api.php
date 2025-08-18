@@ -9,5 +9,6 @@ Route::get('/ping', function() {
 
 Route::prefix('v1')->group(function() {
     Route::get('/health', fn() => response()->json(['ok' => true]));
-    Route::apiResource('blogs', BlogController::class);
+    Route::get('/blogs', [BlogController::class, 'index']);
+    Route::apiResource('blogs', BlogController::class)->except(['index']);
 });

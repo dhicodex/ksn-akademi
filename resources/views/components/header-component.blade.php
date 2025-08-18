@@ -12,14 +12,14 @@
                     <ul class="flex gap-8">
                         @foreach ($menus as $menu)
                         <li>
-                            <a href="/" class="text-sm font-semibold px-2.5 py-3.5 hover:bg-gray-100 hover:rounded-lg duration-300 ease-in-out">{{ $menu->name }}</a>
+                            <a href="{{ $menu->name === 'Blog' ? route('blogs') : '/' }}" class="text-sm font-semibold px-2.5 py-3.5 hover:bg-gray-100 hover:rounded-lg duration-300 ease-in-out">{{ $menu->name }}</a>
                         </li>
                         @endforeach
                     </ul>
                 </div>
 
-                <div class="btn btn-secondary px-5 py-2 text-sm font-semibold cursor-pointer">Masuk</div>
-                <div class="btn btn-primary px-5 py-2 text-sm font-semibold cursor-pointer">Daftar</div>
+                <a href="{{ route('login') }}" class="btn btn-secondary px-5 py-2 text-sm font-semibold cursor-pointer">Masuk</a>
+                <a href="{{ route('register') }}" class="btn btn-primary px-5 py-2 text-sm font-semibold cursor-pointer">Daftar</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -38,11 +38,11 @@
         <ul class="flex flex-col items-center gap-4 py-4">
             @foreach ($menus as $menu)
             <li>
-                <a href="/" class="text-sm font-semibold px-2.5 py-3.5 hover:bg-gray-100 hover:rounded-lg duration-300 ease-in-out">{{ $menu->name }}</a>
+                <a href="{{ $menu->name === 'Blog' ? route('blogs') : '/' }}" class="text-sm font-semibold px-2.5 py-3.5 hover:bg-gray-100 hover:rounded-lg duration-300 ease-in-out">{{ $menu->name }}</a>
             </li>
             @endforeach
-            <li><div class="btn btn-secondary px-5 py-2 text-sm font-semibold cursor-pointer">Masuk</div></li>
-            <li><div class="btn btn-primary px-5 py-2 text-sm font-semibold cursor-pointer">Daftar</div></li>
+            <li><a href="{{ route('login') }}" class="btn btn-secondary px-5 py-2 text-sm font-semibold cursor-pointer">Masuk</a></li>
+            <li><a href="{{ route('register') }}" class="btn btn-primary px-5 py-2 text-sm font-semibold cursor-pointer">Daftar</a></li>
         </ul>
     </div>
 </header>

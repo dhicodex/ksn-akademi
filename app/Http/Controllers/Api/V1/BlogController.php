@@ -30,7 +30,7 @@ class BlogController extends Controller
                 $query->where('category_id', $request->category_id);
             })
             ->latest()
-            ->paginate(10);
+            ->paginate(8);
 
         return $this->successResponse($blogs, 'Blogs retrieved successfully.');
     }
