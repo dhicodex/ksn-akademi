@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.blogs.index');
+        }
+
+        return redirect()->route('dashboard');
+    }
     public function showLoginForm()
     {
         return view('auth.login');
@@ -22,7 +30,8 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+
+            return $this->authenticated($request, Auth::user());
         }
 
         return back()->withErrors([

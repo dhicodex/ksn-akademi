@@ -14,7 +14,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     <x-header-component />
     
     {{-- Hero --}}
-    <section class="hero section bg-white min-h-[600px]" data-aos="fade-in">
+    <section class="hero section bg-white min-h-[600px]">
         <div class="container flex flex-col items-center justify-center px-4">
             <div class="max-w-[800px] mx-auto text-center">
                 <h1 class="hero-title text-3xl md:text-5xl leading-tight font-bold">Solusi Terpercaya untuk Sengketa Kepabeanan Bea Cukai dan Sertifikasi Ahli Kepabeanan</h1>
@@ -27,7 +27,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     </section>
 
     {{-- Plans --}}
-    <section id="plans" class="plans-section bg-white pb-20" data-aos="fade-up">
+    <section id="plans" class="plans-section bg-white pb-20">
         <div class="container max-w-[1200px] mx-auto flex flex-col items-center px-4">
             <h2 class="play-fair-family text-3xl md:text-4xl text-[#1d1e20] font-semibold text-center">
                 Pilih Paket Anda
@@ -71,7 +71,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     {{-- About --}}
     <section class="about-section pt-20 pb-10 md:pb-[200px]">
         <div class="container max-w-[1200px] mx-auto flex flex-col md:flex-row gap-10 px-4">
-            <div class="relative w-full md:w-[50%]" data-aos="fade-right">
+            <div class="relative w-full md:w-[50%]">
                 <!-- Gambar 1 dan 2 di atas, overlap -->
                 <div class="illustration-about flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-[-30px] z-10 relative mb-3">
                     <img src="https://media.istockphoto.com/id/1783743772/id/foto/pembicara-wanita-memberikan-presentasi-selama-seminar-bisnis-di-pusat-konvensi.jpg?s=612x612&w=0&k=20&c=dTuGMazV0h9OycnjVjyxW7nDYcAcZTPkObtyRqqkOSw=" 
@@ -89,7 +89,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                 </div>
             </div>
 
-            <div class="relative flex flex-col justify-end pb-10 flex-1 mt-10 md:mt-0" data-aos="fade-left">
+            <div class="relative flex flex-col justify-end pb-10 flex-1 mt-10 md:mt-0">
                 <div class="bg-[#2e3e50] py-1 px-4 text-center text-white text-sm font-medium rounded-sm w-fit mb-2">Tentang Kami</div>
                 <h2 class="play-fair-family text-[#1d1e20] text-3xl md:text-4xl font-semibold">Pelajari & tingkatkan <span class="marker-circle relative">keterampilan</span> Anda bersama Kami</h2>
                 <p class="mt-2 text-[#7a7a7a]">Berkomitmen memberikan solusi dan pendampingan terbaik dalam kepabeanan dan cukai, serta edukasi dan dukungan sistem yang efektif. Kami berupaya memberikan layanan terbaik dan kenyamanan konsultasi bagi klien. Kepercayaan Anda menjadi prioritas kami, yang telah dipilih oleh banyak klien</p>
@@ -98,7 +98,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     </section>
 
     {{-- Testimonial --}}
-    <section class="testimonial-section bg-[#2e3e50]" data-aos="fade-up">
+    <section class="testimonial-section bg-[#2e3e50]">
         <div class="container max-w-[1200px] mx-auto flex flex-col gap-10 relative px-4">
             <div class="testimonial-counting bg-white flex flex-col md:flex-row gap-5 py-10 px-6 md:py-[50px] md:px-[70px] relative top-[-95px] rounded-lg md:rounded-full">
                 <div class="flex gap-4 w-full items-center">
@@ -214,7 +214,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     </section>
 
     {{-- Expert --}}
-    <section class="expert-section bg-white" data-aos="fade-up">
+    <section class="expert-section bg-white">
         <div class="container max-w-[1200px] mx-auto flex flex-col gap-10 relative py-20 px-4">
             <div class="flex items-center justify-center flex-col">
                 <div class="bg-[#2e3e50] py-1 px-4 text-center text-white text-sm font-medium rounded-sm w-fit mb-4">Experts</div>

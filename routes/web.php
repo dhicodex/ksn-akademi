@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', function () {
         return view('profile.index');
     })->name('profile');
+    Route::get('/dashboard', [\App\Http\Controllers\Client\DashboardController::class, 'index'])->name('dashboard');
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -48,4 +49,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('plans', \App\Http\Controllers\Admin\PlanController::class);
         Route::resource('plan-features', PlanFeatureController::class);
     });
+});
+
+
+Route::get('/check-session', function () {
+    return session()->all();   // tampilkan semua session
 });
