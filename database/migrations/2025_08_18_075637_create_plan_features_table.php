@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('blogs', function (Blueprint $table) {
-            $table->string('slug')->unique()->after('title');
+        Schema::create('plan_features', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('plan_id')->constrained('plans')->onDelete('cascade');
+            $table->string('feature');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('blogs', function (Blueprint $table) {
-            $table->dropColumn('slug');
-        });
+        Schema::dropIfExists('plan_features');
     }
 };

@@ -15,4 +15,9 @@ class Plan extends Model
         'description',
         'for_who',
     ];
+
+    public function plan_features()
+    {
+        return $this->hasMany(PlanFeature::class);
+    }
 }

@@ -14,7 +14,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     <x-header-component />
     
     {{-- Hero --}}
-    <section class="hero section bg-white min-h-[600px]">
+    <section class="hero section bg-white min-h-[600px]" data-aos="fade-in">
         <div class="container flex flex-col items-center justify-center px-4">
             <div class="max-w-[800px] mx-auto text-center">
                 <h1 class="hero-title text-3xl md:text-5xl leading-tight font-bold">Solusi Terpercaya untuk Sengketa Kepabeanan Bea Cukai dan Sertifikasi Ahli Kepabeanan</h1>
@@ -27,7 +27,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     </section>
 
     {{-- Plans --}}
-    <section id="plans" class="plans-section bg-white pb-20">
+    <section id="plans" class="plans-section bg-white pb-20" data-aos="fade-up">
         <div class="container max-w-[1200px] mx-auto flex flex-col items-center px-4">
             <h2 class="play-fair-family text-3xl md:text-4xl text-[#1d1e20] font-semibold text-center">
                 Pilih Paket Anda
@@ -35,49 +35,35 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             <p class="max-w-[400px] text-[#7a7a7a] text-center mt-2">Pilih paket yang sesuai untuk menuntaskan tantangan kepabeanan Anda</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 w-full items-end">
-                @for ($i = 0; $i < 3; $i++)
+                @foreach ($plans as $plan)
                     <div class="card-package">
-                        <div class="card-package__wrapper border bg-[#fafbff] rounded-lg {{ $i == 1 ? 'border-[#2e3e50] border-2' : 'border-slate-200' }}">
+                        <div class="card-package__wrapper border bg-[#fafbff] rounded-lg {{ $loop->index == 1 ? 'border-[#2e3e50] border-2' : 'border-slate-200' }}">
                             <div class="card-package__header p-5">
-                                <div class="card-package__title play-fair-family text-2xl font-medium text-[#1d1e20]">Business</div>
-                                <div class="card-package__desc text-[#7a7a7a] text-sm mt-1">For your team</div>
+                                <div class="card-package__title play-fair-family text-2xl font-medium text-[#1d1e20]">{{ $plan->name }}</div>
+                                <div class="card-package__desc text-[#7a7a7a] text-sm mt-1">{{ $plan->for_who }}</div>
                             </div>
                             
                             <div class="card-package__body bg-white mt-1 p-5 rounded-b-lg">
                                 <div class="card-package__price play-fair-family text-2xl font-bold">
-                                    Rp. 1.000.000<span class="text-sm text-[#7a7a7a] font-medium">/ 3x Pertemuan</span>
+                                    Rp. {{ number_format($plan->price, 0, ',', '.') }}<span class="text-sm text-[#7a7a7a] font-medium">/ {{ $plan->description }}</span>
                                 </div>
 
                                 <div class="btn btn-primary py-3 px-6 mt-4 text-center">Pilih Paket</div>
 
                                 <div class="card-package__profit">
                                     <ul>
-                                        <li class="flex items-center gap-2 mt-4">
-                                            <img src="{{ asset('icons/ico_checklist.svg') }}" alt="checklist" class="w-4 h-4">
-                                            <span class="text-sm">Lorem ipsum dolor sit.</span>
-                                        </li>
-                                        <li class="flex items-center gap-2 mt-4">
-                                            <img src="{{ asset('icons/ico_checklist.svg') }}" alt="checklist" class="w-4 h-4">
-                                            <span class="text-sm">Lorem ipsum dolor sit.</span>
-                                        </li>
-                                        <li class="flex items-center gap-2 mt-4">
-                                            <img src="{{ asset('icons/ico_checklist.svg') }}" alt="checklist" class="w-4 h-4">
-                                            <span class="text-sm">Lorem ipsum dolor sit.</span>
-                                        </li>
-                                        <li class="flex items-center gap-2 mt-4">
-                                            <img src="{{ asset('icons/ico_checklist.svg') }}" alt="checklist" class="w-4 h-4">
-                                            <span class="text-sm">Lorem ipsum dolor sit.</span>
-                                        </li>
-                                        <li class="flex items-center gap-2 mt-4">
-                                            <img src="{{ asset('icons/ico_checklist.svg') }}" alt="checklist" class="w-4 h-4">
-                                            <span class="text-sm">Lorem ipsum dolor sit.</span>
-                                        </li>
+                                        @foreach ($plan->plan_features as $feature)
+                                            <li class="flex items-center gap-2 mt-4">
+                                                <img src="{{ asset('icons/ico_checklist.svg') }}" alt="checklist" class="w-4 h-4">
+                                                <span class="text-sm">{{ $feature->feature }}</span>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </section>
@@ -85,7 +71,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     {{-- About --}}
     <section class="about-section pt-20 pb-10 md:pb-[200px]">
         <div class="container max-w-[1200px] mx-auto flex flex-col md:flex-row gap-10 px-4">
-            <div class="relative w-full md:w-[50%]">
+            <div class="relative w-full md:w-[50%]" data-aos="fade-right">
                 <!-- Gambar 1 dan 2 di atas, overlap -->
                 <div class="illustration-about flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-[-30px] z-10 relative mb-3">
                     <img src="https://media.istockphoto.com/id/1783743772/id/foto/pembicara-wanita-memberikan-presentasi-selama-seminar-bisnis-di-pusat-konvensi.jpg?s=612x612&w=0&k=20&c=dTuGMazV0h9OycnjVjyxW7nDYcAcZTPkObtyRqqkOSw=" 
@@ -103,7 +89,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                 </div>
             </div>
 
-            <div class="relative flex flex-col justify-end pb-10 flex-1 mt-10 md:mt-0">
+            <div class="relative flex flex-col justify-end pb-10 flex-1 mt-10 md:mt-0" data-aos="fade-left">
                 <div class="bg-[#2e3e50] py-1 px-4 text-center text-white text-sm font-medium rounded-sm w-fit mb-2">Tentang Kami</div>
                 <h2 class="play-fair-family text-[#1d1e20] text-3xl md:text-4xl font-semibold">Pelajari & tingkatkan <span class="marker-circle relative">keterampilan</span> Anda bersama Kami</h2>
                 <p class="mt-2 text-[#7a7a7a]">Berkomitmen memberikan solusi dan pendampingan terbaik dalam kepabeanan dan cukai, serta edukasi dan dukungan sistem yang efektif. Kami berupaya memberikan layanan terbaik dan kenyamanan konsultasi bagi klien. Kepercayaan Anda menjadi prioritas kami, yang telah dipilih oleh banyak klien</p>
@@ -112,7 +98,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     </section>
 
     {{-- Testimonial --}}
-    <section class="testimonial-section bg-[#2e3e50]">
+    <section class="testimonial-section bg-[#2e3e50]" data-aos="fade-up">
         <div class="container max-w-[1200px] mx-auto flex flex-col gap-10 relative px-4">
             <div class="testimonial-counting bg-white flex flex-col md:flex-row gap-5 py-10 px-6 md:py-[50px] md:px-[70px] relative top-[-95px] rounded-lg md:rounded-full">
                 <div class="flex gap-4 w-full items-center">
@@ -228,7 +214,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     </section>
 
     {{-- Expert --}}
-    <section class="expert-section bg-white">
+    <section class="expert-section bg-white" data-aos="fade-up">
         <div class="container max-w-[1200px] mx-auto flex flex-col gap-10 relative py-20 px-4">
             <div class="flex items-center justify-center flex-col">
                 <div class="bg-[#2e3e50] py-1 px-4 text-center text-white text-sm font-medium rounded-sm w-fit mb-4">Experts</div>

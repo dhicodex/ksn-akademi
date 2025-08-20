@@ -8,7 +8,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('web.home.home');
+        $plans = \App\Models\Plan::with('plan_features')->get();
+        return view('home', compact('plans'));
     }
 
     public function blogs()

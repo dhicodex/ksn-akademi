@@ -9,5 +9,15 @@ class PlanFeature extends Model
 {
     use HasFactory;
 
-    protected $table = 'plans_features';
+    protected $table = 'plan_features';
+
+    protected $fillable = [
+        'plan_id',
+        'name',
+    ];
+
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
 }

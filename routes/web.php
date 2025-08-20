@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\PlanFeatureController;
 
 use App\Http\Middleware\IsAdmin;
 
@@ -45,5 +46,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('blogs', BlogController::class);
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
         Route::resource('plans', \App\Http\Controllers\Admin\PlanController::class);
+        Route::resource('plan-features', PlanFeatureController::class);
     });
 });

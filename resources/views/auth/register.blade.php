@@ -69,7 +69,7 @@
             <div class="mt-6 text-center">
                 <p class="text-sm text-gray-600">
                     Sudah punya akun?
-                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                    <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500">
                         Masuk di sini
                     </a>
                 </p>
