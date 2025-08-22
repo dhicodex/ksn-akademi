@@ -48,6 +48,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
         Route::resource('plans', \App\Http\Controllers\Admin\PlanController::class);
         Route::resource('plan-features', PlanFeatureController::class);
+        Route::resource('client-plans', \App\Http\Controllers\Admin\ClientPlanController::class);
     });
 });
 

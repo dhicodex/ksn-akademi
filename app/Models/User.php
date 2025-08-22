@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Plan::class)->withTimestamps();
     }
+
+    public function clientPlans()
+    {
+        return $this->hasMany(ClientPlan::class);
+    }
 }

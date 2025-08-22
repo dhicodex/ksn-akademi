@@ -21,4 +21,9 @@ class Plan extends Model
     {
         return $this->hasMany(PlanFeature::class);
     }
+
+    public function clientPlans()
+    {
+        return $this->hasMany(ClientPlan::class);
+    }
 }
