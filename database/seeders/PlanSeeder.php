@@ -61,7 +61,7 @@ class PlanSeeder extends Seeder
             ]);
 
             foreach ($planData['features'] as $feature) {
-                $plan->plan_features()->create(['name' => $feature]);
+                $plan->plan_features()->create(['feature' => $feature]);
             }
         }
     }

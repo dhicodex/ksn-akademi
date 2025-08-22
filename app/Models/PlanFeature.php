@@ -13,7 +13,7 @@ class PlanFeature extends Model
 
     protected $fillable = [
         'plan_id',
-        'name',
+        'feature',
     ];
 
     public function plan()
