@@ -3,7 +3,7 @@
 @section('title', 'Edit Blog')
 
 @section('content')
-<form action="{{ route('admin.blogs.update', $blog->id) }}" method="POST" class="bg-white p-6 rounded-lg shadow">
+<form action="{{ route('admin.blogs.update', $blog->id) }}" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow">
     @csrf
     @method('PUT')
     <div class="space-y-4">
@@ -23,6 +23,21 @@
             @error('content')
                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
             @enderror
+        </div>
+
+        <!-- Image -->
+        <div>
+            <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
+            <input type="file" name="image" id="image" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('image') border-red-500 @enderror">
+            @error('image')
+                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+            @enderror
+            @if ($blog->image_src)
+                <div class="mt-4">
+                    <p class="text-sm text-gray-500">Current Image:</p>
+                    <img src="{{ asset('storage/' . $blog->image_src) }}" alt="{{ $blog->title }}" class="mt-2 h-32 w-auto object-cover rounded-md">
+                </div>
+            @endif
         </div>
 
         <!-- Category -->

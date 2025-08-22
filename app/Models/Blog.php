@@ -27,6 +27,8 @@ class Blog extends Model
         'content',
         'category_id',
         'status',
+        'author',
+        'image_src',
     ];
 
     protected $casts = [

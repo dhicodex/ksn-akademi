@@ -3,7 +3,7 @@
 @section('title', 'Create New Blog')
 
 @section('content')
-<form action="{{ route('admin.blogs.store') }}" method="POST" class="bg-white p-6 rounded-lg shadow">
+<form action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow">
     @csrf
     <div class="space-y-4">
         <!-- Title -->
@@ -20,6 +20,15 @@
             <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
             <textarea name="content" id="content" rows="10" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('content') border-red-500 @enderror">{{ old('content') }}</textarea>
             @error('content')
+                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <!-- Image -->
+        <div>
+            <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
+            <input type="file" name="image" id="image" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('image') border-red-500 @enderror">
+            @error('image')
                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
             @enderror
         </div>

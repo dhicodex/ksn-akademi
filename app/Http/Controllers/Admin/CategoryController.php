@@ -25,7 +25,7 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255|unique:categories',
         ]);
 
-        Category::create($request->all());
+        Category::create($request->except(['_token', '_method']));
 
         return redirect()->route('admin.categories.index')
             ->with('success', 'Category created successfully.');
@@ -42,7 +42,7 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255|unique:categories,name,' . $category->id,
         ]);
 
-        $category->update($request->all());
+        $category->update($request->except(['_token', '_method']));
 
         return redirect()->route('admin.categories.index')
             ->with('success', 'Category updated successfully.');

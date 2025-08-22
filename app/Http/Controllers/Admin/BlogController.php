@@ -7,6 +7,8 @@ use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -49,9 +51,18 @@ class BlogController extends Controller
             'content' => 'required|string',
             'category_id' => 'required|exists:categories,id',
             'status' => ['required', Rule::in(['DRAFT', 'PUBLISHED'])],
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        Blog::create($request->all());
+        $data = $request->except(['_token', '_method']);
+
+        if ($request->hasFile('image')) {
+            $data['image_src'] = $request->file('image')->store('blogs', 'public');
+        }
+
+        $data['author'] = auth()->id();
+
+        Blog::create($data);
 
         return redirect()->route('admin.blogs.index')
                          ->with('success', 'Blog created successfully.');
@@ -76,9 +87,20 @@ class BlogController extends Controller
             'content' => 'required|string',
             'category_id' => 'required|exists:categories,id',
             'status' => ['required', Rule::in(['DRAFT', 'PUBLISHED'])],
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $blog->update($request->all());
+        $data = $request->except(['_token', '_method']);
+
+        if ($request->hasFile('image')) {
+            // Delete old image
+            if ($blog->image_src) {
+                Storage::disk('public')->delete($blog->image_src);
+            }
+            $data['image_src'] = $request->file('image')->store('blogs', 'public');
+        }
+
+        $blog->update($data);
 
         return redirect()->route('admin.blogs.index')
                          ->with('success', 'Blog updated successfully.');
@@ -89,6 +111,11 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        // Delete image
+        if ($blog->image_src) {
+            Storage::disk('public')->delete($blog->image_src);
+        }
+
         $blog->delete();
 
         return redirect()->route('admin.blogs.index')

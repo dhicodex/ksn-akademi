@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::dropIfExists('plans');
-        Schema::dropIfExists('plans_features');
 
 
         Schema::create('plans', function (Blueprint $table) {
@@ -26,14 +25,6 @@ return new class extends Migration
             $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
-
-        // Membuat tabel plans_features
-        Schema::create('plans_features', function (Blueprint $table) {
-            $table->id(); // Membuat kolom id untuk primary key
-            $table->foreignId('plan_id')->constrained('plans')->onDelete('cascade');
-            $table->string('feature', 255);
-            $table->timestamps();
-        });
     }
 
     /**
@@ -41,7 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('plans_features');
         Schema::dropIfExists('plans');
     }
 };

@@ -34,7 +34,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             </h2>
             <p class="max-w-[400px] text-[#7a7a7a] text-center mt-2">Pilih paket yang sesuai untuk menuntaskan tantangan kepabeanan Anda</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 w-full items-end">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 w-full items-start">
                 @foreach ($plans as $plan)
                     <div class="card-package">
                         <div class="card-package__wrapper border bg-[#fafbff] rounded-lg {{ $loop->index == 1 ? 'border-[#2e3e50] border-2' : 'border-slate-200' }}">

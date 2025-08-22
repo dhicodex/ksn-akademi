@@ -9,11 +9,11 @@
         <div id="blogs-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             @foreach ($blogs as $blog)
                 <div class="bg-white rounded-lg shadow-md">
-                    <img src="{{ $blog->thumbnail ?? asset('images/broken-image.png') }}" alt="{{ $blog->title }}" class="rounded-t-lg {{ $blog->thumbnail ? '' : 'py-2 px-10 object-cover' }}">
+                    <img src="{{ $blog->image_src ? asset('storage/' . $blog->image_src) : asset('images/broken-image.png') }}" alt="{{ $blog->title }}" class="rounded-t-lg {{ $blog->image_src ? '' : 'py-2 px-10 object-cover' }}">
                     <div class="p-6">
                         <h2 class="font-bold text-xl mb-2">{{ $blog->title }}</h2>
                         <p class="text-gray-700 text-base">
-                            {{ Str::limit($blog->content, 100) }}
+                            {!! Str::limit($blog->content, 100) !!}
                         </p>
                                                                         <a href="{{ route('blogs.show', $blog) }}" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Read More</a>
                     </div>
@@ -53,7 +53,7 @@
                 data.data.data.forEach(blog => {
                     const blogElement = `
                         <div class="bg-white rounded-lg shadow-md">
-                            <img src="${blog.thumbnail ?? asset('images/broken-image.png') }" alt="${blog.title}" class="rounded-t-lg">
+                            <img src="${blog.image_src ? '/storage/' + blog.image_src : '/images/broken-image.png'}" alt="${blog.title}" class="rounded-t-lg">
                             <div class="p-6">
                                 <h2 class="font-bold text-xl mb-2">${blog.title}</h2>
                                 <p class="text-gray-700 text-base">

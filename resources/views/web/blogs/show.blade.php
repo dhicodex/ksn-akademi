@@ -5,6 +5,9 @@
 
     <div class="container mx-auto px-4 py-8">
         <div class="max-w-4xl mx-auto">
+            @if ($blog->image_src)
+                <img src="{{ asset('storage/' . $blog->image_src) }}" alt="{{ $blog->title }}" class="w-full h-auto object-cover rounded-lg mb-8">
+            @endif
             <h1 class="text-4xl font-bold mb-4">{{ $blog->title }}</h1>
             <div class="text-gray-600 mb-8">
                 <span>Published on {{ $blog->created_at->format('F d, Y') }}</span>
