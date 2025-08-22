@@ -34,7 +34,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             </h2>
             <p class="max-w-[400px] text-[#7a7a7a] text-center mt-2">Pilih paket yang sesuai untuk menuntaskan tantangan kepabeanan Anda</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 w-full items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5 w-full items-start">
                 @foreach ($plans as $plan)
                     <div class="card-package">
                         <div class="card-package__wrapper border bg-[#fafbff] rounded-lg {{ $loop->index == 1 ? 'border-[#2e3e50] border-2' : 'border-slate-200' }}">
@@ -70,16 +70,16 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
     {{-- About --}}
     <section class="about-section pt-20 pb-10 md:pb-[200px]">
-        <div class="container max-w-[1200px] mx-auto flex flex-col md:flex-row gap-10 px-4">
-            <div class="relative w-full md:w-[50%]">
+        <div class="container max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-10 px-4">
+            <div class="relative w-full lg:w-[50%]">
                 <!-- Gambar 1 dan 2 di atas, overlap -->
-                <div class="illustration-about flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-[-30px] z-10 relative mb-3">
+                <div class="illustration-about flex flex-row space-y-0 space-x-[-30px] z-10 relative mb-3">
                     <img src="https://media.istockphoto.com/id/1783743772/id/foto/pembicara-wanita-memberikan-presentasi-selama-seminar-bisnis-di-pusat-konvensi.jpg?s=612x612&w=0&k=20&c=dTuGMazV0h9OycnjVjyxW7nDYcAcZTPkObtyRqqkOSw=" 
                         alt="About 1" 
-                        class="w-full md:w-[400px] h-52 object-cover rounded-lg border-4 border-white shadow-lg relative z-20" />
+                        class="w-[200px] md:w-[400px] h-52 object-cover rounded-lg border-4 border-white shadow-lg relative z-20" />
                     <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         alt="About 2"
-                        class="w-full md:w-52 h-52 object-cover rounded-lg border-4 border-white shadow-lg relative md:bottom-[-50px]" />
+                        class="w-[200px] md:w-52 h-52 object-cover rounded-lg border-4 border-white shadow-lg relative bottom-[-50px]" />
                 </div>
                 <!-- Gambar 3 di bawah, full -->
                 <div>
@@ -89,7 +89,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                 </div>
             </div>
 
-            <div class="relative flex flex-col justify-end pb-10 flex-1 mt-10 md:mt-0">
+            <div class="relative flex flex-col justify-end pb-40 md:pb-10 flex-1 mt-10 md:mt-0">
                 <div class="bg-[#2e3e50] py-1 px-4 text-center text-white text-sm font-medium rounded-sm w-fit mb-2">Tentang Kami</div>
                 <h2 class="play-fair-family text-[#1d1e20] text-3xl md:text-4xl font-semibold">Pelajari & tingkatkan <span class="marker-circle relative">keterampilan</span> Anda bersama Kami</h2>
                 <p class="mt-2 text-[#7a7a7a]">Berkomitmen memberikan solusi dan pendampingan terbaik dalam kepabeanan dan cukai, serta edukasi dan dukungan sistem yang efektif. Kami berupaya memberikan layanan terbaik dan kenyamanan konsultasi bagi klien. Kepercayaan Anda menjadi prioritas kami, yang telah dipilih oleh banyak klien</p>
