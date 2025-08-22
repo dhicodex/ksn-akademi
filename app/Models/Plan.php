@@ -14,6 +14,7 @@ class Plan extends Model
         'price',
         'description',
         'for_who',
+        'is_popular',
     ];
 
     public function plan_features()

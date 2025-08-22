@@ -36,8 +36,11 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5 w-full items-start">
                 @foreach ($plans as $plan)
-                    <div class="card-package">
-                        <div class="card-package__wrapper border bg-[#fafbff] rounded-lg {{ $loop->index == 1 ? 'border-[#2e3e50] border-2' : 'border-slate-200' }}">
+                    <div class="card-package relative overflow-hidden">
+                        @if($plan->is_popular)
+                            <div class="absolute top-4 -right-10 transform rotate-45 bg-red-500 text-white text-center font-bold py-1 w-32">Terpopuler</div>
+                        @endif
+                        <div class="card-package__wrapper border bg-[#fafbff] rounded-lg {{ $plan->is_popular ? 'border-[#2e3e50] border-2' : 'border-slate-200' }}">
                             <div class="card-package__header p-5">
                                 <div class="card-package__title play-fair-family text-2xl font-medium text-[#1d1e20]">{{ $plan->name }}</div>
                                 <div class="card-package__desc text-[#7a7a7a] text-sm mt-1">{{ $plan->for_who }}</div>
@@ -48,7 +51,11 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                                     Rp. {{ number_format($plan->price, 0, ',', '.') }}<span class="text-sm text-[#7a7a7a] font-medium">/ {{ $plan->description }}</span>
                                 </div>
 
-                                <div class="btn btn-primary py-3 px-6 mt-4 text-center">Pilih Paket</div>
+                                @auth
+                                <a href="https://wa.me/6281990891680?text=Saya%20tertarik%20dengan%20paket%20{{ $plan->name }}%20dengan%20email%20{{ Auth::user()->email }}" target="_blank" class="btn btn-primary py-3 px-6 mt-4 text-center block">Pilih Paket</a>
+                                @else
+                                <a href="{{ route('login') }}" class="btn btn-primary py-3 px-6 mt-4 text-center block">Pilih Paket</a>
+                                @endauth
 
                                 <div class="card-package__profit">
                                     <ul>

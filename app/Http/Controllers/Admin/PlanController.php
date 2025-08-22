@@ -26,7 +26,12 @@ class PlanController extends Controller
             'price' => 'required|numeric',
             'description' => 'nullable|string',
             'for_who' => 'required|string|max:100',
+            'is_popular' => 'nullable|boolean',
         ]);
+
+        if ($request->has('is_popular')) {
+            Plan::where('is_popular', true)->update(['is_popular' => false]);
+        }
 
         Plan::create($request->all());
 
@@ -46,7 +51,12 @@ class PlanController extends Controller
             'price' => 'required|numeric',
             'description' => 'nullable|string',
             'for_who' => 'required|string|max:100',
+            'is_popular' => 'nullable|boolean',
         ]);
+
+        if ($request->has('is_popular')) {
+            Plan::where('is_popular', true)->update(['is_popular' => false]);
+        }
 
         $plan->update($request->all());
 

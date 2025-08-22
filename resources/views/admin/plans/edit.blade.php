@@ -42,6 +42,13 @@
                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
             @enderror
         </div>
+
+        <!-- Is Popular -->
+        <div class="flex items-center">
+            <input type="hidden" name="is_popular" value="0">
+            <input type="checkbox" name="is_popular" id="is_popular" value="1" {{ old('is_popular', $plan->is_popular) ? 'checked' : '' }} class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+            <label for="is_popular" class="ml-2 block text-sm text-gray-900">Popular</label>
+        </div>
     </div>
 
     <div class="mt-6 flex justify-end space-x-4">

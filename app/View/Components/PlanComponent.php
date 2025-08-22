@@ -13,7 +13,7 @@ class PlanComponent extends Component
 
     public function __construct()
     {
-        $this->plans = Plan::all();
+        $this->plans = Plan::take(3)->get();
     }
 
     /**
